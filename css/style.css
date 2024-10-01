@@ -1,0 +1,14 @@
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background-color: #FFFFFF;
+    color: #101828;
+    font-family: 'Flow Circular', sans-serif;
+    /* Aplicando a fonte ao corpo */
+}
+
+.font-family {
+    font-family: "Kode Mono", monospace;
+}

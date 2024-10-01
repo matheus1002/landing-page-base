@@ -1,0 +1,610 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Intelliforms - Criação de Formulários Dinâmicos</title>
+
+    <!-- Meta Tags -->
+    <meta name="description" content="Crie formulários dinâmicos e otimize seus processos com o Intelliforms.">
+    <meta name="keywords" content="formulários, dinâmicos, otimização, processos">
+
+    <!-- Favicon -->
+    <link rel="icon" href="img/favicon.ico" type="image/x-icon">
+
+    <!-- Pré-conexão para otimizar o carregamento da fonte -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Flow+Circular&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Kode+Mono&display=swap" rel="stylesheet">
+
+    <!-- Tailwind CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+
+    <!-- Estilos personalizados -->
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body class="bg-white text-gray-900 font-sans antialiased">
+
+    <!-- Header -->
+    <header class="bg-white shadow-lg sticky top-0 z-50">
+        <div class="max-w-6xl mx-auto px-4 py-6 flex justify-between items-center">
+            <div class="flex items-center space-x-8">
+                <h1 class="text-2xl font-bold text-gray-600">
+                    <a href="#" aria-label="Ir para a página inicial"
+                        class="font-family text-purple-600">Intelliforms</a>
+                </h1>
+                <nav id="nav-menu" class="hidden xl:flex space-x-6" aria-label="Menu de Navegação">
+                    <a href="#features" class="text-gray-700 hover:text-purple-600 font-medium transition">Recursos</a>
+                    <a href="#contact" class="text-gray-700 hover:text-purple-600 font-medium transition">Contato</a>
+                    <a href="#faq" class="text-gray-700 hover:text-purple-600 font-medium transition">FAQ</a>
+                    <a href="#plans" class="text-gray-700 hover:text-purple-600 font-medium transition">Planos</a>
+                </nav>
+            </div>
+
+            <div class="hidden xl:flex space-x-4">
+                <a href="#login" class="text-gray-700 hover:text-purple-600 font-medium py-2 px-6 transition">Logar</a>
+                <a href="#cadastro"
+                    class="bg-purple-600 text-white font-medium py-2 px-6 rounded hover:bg-purple-700 transition">Cadastre-se</a>
+            </div>
+
+            <button id="hamburger" aria-expanded="false" class="xl:hidden flex items-center focus:outline-none"
+                onclick="toggleMobileMenu()">
+                <img alt="Menu Hamburger" loading="lazy" width="40" height="40" decoding="async"
+                    src="img/hamburger.svg">
+            </button>
+        </div>
+
+        <div id="mobile-menu" class="hidden xl:hidden bg-white border-t border-gray-200">
+            <nav class="flex flex-col space-y-2 p-4" aria-label="Menu de Navegação Móvel">
+                <a href="#features" class="text-gray-700 hover:text-purple-600 font-medium transition">Recursos</a>
+                <a href="#contact" class="text-gray-700 hover:text-purple-600 font-medium transition">Contato</a>
+                <a href="#faq" class="text-gray-700 hover:text-purple-600 font-medium transition">FAQ</a>
+                <a href="#plans" class="text-gray-700 hover:text-purple-600 font-medium transition">Planos</a>
+                <a href="#cadastro"
+                    class="bg-purple-600 text-white font-medium py-2 px-6 rounded hover:bg-purple-700 transition">Cadastre-se</a>
+                <a href="#login"
+                    class="bg-white text-gray-700 border border-gray-300 font-medium py-2 px-6 rounded hover:bg-gray-100 transition">Logar</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="relative bg-purple-600 text-white py-24" aria-labelledby="hero-heading">
+        <div class="absolute inset-0 bg-cover bg-center opacity-50"
+            style="background-image: url('https://source.unsplash.com/1600x900/?technology,form');" role="img"
+            aria-label="Fundo de tecnologia e formulários"></div>
+        <div class="relative max-w-4xl mx-auto px-4 text-center">
+            <h2 id="hero-heading" class="text-4xl xl:text-6xl font-semibold text-white mt-4 mb-6">Crie Formulários
+                Dinâmicos com Inteligência</h2>
+            <p class="mt-6 text-xl">Com mínima configuração, você pode criar e compartilhar formulários rapidamente e
+                acessar as respostas em tempo real.</p>
+            <div class="flex flex-col sm:flex-row justify-center mt-10 space-y-4 sm:space-y-0 sm:space-x-4">
+                <a href="#demo"
+                    class="inline-block bg-purple-600 text-white font-semibold py-4 px-8 rounded-full border-2 border-white shadow-lg hover:bg-purple-700 transition"
+                    role="button" aria-label="Demonstrar o produto">
+                    <svg stroke="currentColor" fill="none" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round"
+                        stroke-linejoin="round" class="text-white inline-block mr-2" height="24" width="24"
+                        xmlns="http://www.w3.org/2000/svg">
+                        <circle cx="12" cy="12" r="10"></circle>
+                        <polygon points="10 8 16 12 10 16 10 8"></polygon>
+                    </svg>
+                    Demo
+                </a>
+                <a href="#features"
+                    class="inline-block bg-white text-purple-600 font-semibold py-4 px-8 rounded-full shadow-lg hover:bg-gray-200 transition"
+                    role="button" aria-label="Começar agora">
+                    Comece Agora
+                </a>
+            </div>
+        </div>
+
+        <!-- Imagem do MacBook posicionada no final da seção -->
+        <div class="flex justify-center mt-10">
+            <!-- Flexbox para centralizar -->
+            <img alt="Mockup de um MacBook" loading="lazy" width="1216" height="480" decoding="async" data-nimg="1"
+                class="hidden xl:block" style="color:transparent; margin-bottom:-7%" src="img/macbook.png">
+
+            <img alt="Mockup de um MacBook para dispositivos móveis" loading="lazy" width="343" height="200"
+                decoding="async" data-nimg="1" class="block xl:hidden mx-auto"
+                style="color:transparent; margin-bottom:-14%" src="img/macbook-mobile.webp">
+        </div>
+    </section>
+
+    <!-- Empresas que já usaram -->
+    <section id="empresas" class="pt-16 xl:pt-32 bg-white" aria-labelledby="empresas-heading">
+        <div class="w-full max-w-6xl mx-auto px-4 text-center">
+            <p id="empresas-heading" class="text-center text-gray-600 font-medium mb-8">Junte-se a diversas empresas que
+                já utilizam</p>
+            <div class="flex flex-col md:flex-row items-center justify-between gap-y-4 md:gap-x-10">
+                <img src="https://via.placeholder.com/187x48?text=Empresa+1" alt="Logo da Empresa 1"
+                    class="mx-auto md:mx-0 mb-6" loading="lazy">
+                <img src="https://via.placeholder.com/187x48?text=Empresa+2" alt="Logo da Empresa 2"
+                    class="mx-auto md:mx-0 mb-6" loading="lazy">
+                <img src="https://via.placeholder.com/187x48?text=Empresa+3" alt="Logo da Empresa 3"
+                    class="mx-auto md:mx-0 mb-6" loading="lazy">
+                <img src="https://via.placeholder.com/187x48?text=Empresa+4" alt="Logo da Empresa 4"
+                    class="mx-auto md:mx-0 mb-6" loading="lazy">
+                <img src="https://via.placeholder.com/187x48?text=Empresa+5" alt="Logo da Empresa 5"
+                    class="mx-auto md:mx-0 mb-6" loading="lazy">
+            </div>
+            <hr class="mt-16 xl:mt-24 border-gray-200">
+        </div>
+    </section>
+
+    <!-- Funcionalidades -->
+    <section id="features" class="py-20 bg-white" aria-labelledby="features-heading">
+        <div class="max-w-6xl mx-auto px-4 text-center">
+            <small class="inline-block py-1 px-3 bg-brand-50 rounded-2xl text-sm font-medium text-brand-700 mb-3"
+                style="color: #6941C6;">Recursos</small>
+            <h2 id="features-heading" class="text-4xl font-bold">Funcionalidades do Intelliforms</h2>
+            <p class="mt-4 text-lg text-gray-600">Descubra como nosso sistema pode facilitar sua criação e gestão de
+                formulários.</p>
+
+            <div class="mt-12 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10">
+
+                <!-- Criação Rápida de Formulários -->
+                <div class="bg-white p-6 rounded-lg shadow-lg transition transform hover:scale-105"
+                    aria-labelledby="quick-form-creation-heading">
+                    <div class="text-3xl mb-4">📄</div>
+                    <h4 id="quick-form-creation-heading" class="mt-6 text-xl font-semibold text-purple-600">Criação
+                        Rápida de Formulários</h4>
+                    <p class="mt-2 text-gray-600">Utilize diferentes tipos de campos para personalizar seus formulários
+                        de acordo com suas necessidades.</p>
+                </div>
+
+                <!-- Links Compartilháveis -->
+                <div class="bg-white p-6 rounded-lg shadow-lg transition transform hover:scale-105"
+                    aria-labelledby="shareable-links-heading">
+                    <div class="text-3xl mb-4">🔗</div>
+                    <h4 id="shareable-links-heading" class="mt-6 text-xl font-semibold text-purple-600">Links
+                        Compartilháveis</h4>
+                    <p class="mt-2 text-gray-600">Distribua facilmente seus formulários com links que podem ser
+                        compartilhados rapidamente.</p>
+                </div>
+
+                <!-- Exportação de Dados -->
+                <div class="bg-white p-6 rounded-lg shadow-lg transition transform hover:scale-105"
+                    aria-labelledby="data-export-heading">
+                    <div class="text-3xl mb-4">📊</div>
+                    <h4 id="data-export-heading" class="mt-6 text-xl font-semibold text-purple-600">Exportação de Dados
+                    </h4>
+                    <p class="mt-2 text-gray-600">Exporte dados em CSV e visualize gráficos automáticos para facilitar a
+                        análise.</p>
+                </div>
+
+                <!-- Integração via API -->
+                <div class="bg-white p-6 rounded-lg shadow-lg transition transform hover:scale-105"
+                    aria-labelledby="api-integration-heading">
+                    <div class="text-3xl mb-4">📈</div>
+                    <h4 id="api-integration-heading" class="mt-6 text-xl font-semibold text-purple-600">Integração via
+                        API</h4>
+                    <p class="mt-2 text-gray-600">Acesse dados em tempo real e integre com outras ferramentas de sua
+                        empresa.</p>
+                </div>
+
+                <!-- Automação -->
+                <div class="bg-white p-6 rounded-lg shadow-lg transition transform hover:scale-105"
+                    aria-labelledby="api-integration-heading">
+                    <div class="text-3xl mb-4">🤖</div>
+                    <h4 id="api-integration-heading" class="mt-6 text-xl font-semibold text-purple-600">Automação</h4>
+                    <p class="mt-2 text-gray-600">Integração com ferramentas de automação como Zapier, Integromat, e
+                        plataformas de BI.</p>
+                </div>
+
+                <!-- Experiência do Usuário -->
+                <div class="bg-white p-6 rounded-lg shadow-lg transition transform hover:scale-105"
+                    aria-labelledby="api-integration-heading">
+                    <div class="text-3xl mb-4">😊</div>
+                    <h4 id="api-integration-heading" class="mt-6 text-xl font-semibold text-purple-600">Experiência do
+                        Usuário</h4>
+                    <p class="mt-2 text-gray-600">Interface intuitiva e moderna.Opções de personalização para
+                        formularios interativos e envolventes.</p>
+                </div>
+
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Depoimento de Empresa -->
+    <section id="depoimento" class="py-16 xl:py-24 bg-gray-50">
+        <div class="w-full max-w-4xl mx-auto px-4 text-center">
+            <img alt="Logo Empresa X" loading="lazy" width="140" height="40" decoding="async" class="mx-auto mb-6"
+                src="https://via.placeholder.com/140x40.png?text=Logo+Empresa+X">
+
+            <h2 class="my-8 text-3xl xl:text-5xl font-medium text-gray-900">
+                "O Intelliforms nos ajudou a automatizar a coleta de dados e melhorou nossa análise em tempo real. Uma
+                solução prática e ágil!"
+            </h2>
+
+            <div class="mt-6">
+                <img alt="Avatar CEO Empresa X" loading="lazy" width="64" height="64" decoding="async"
+                    class="mx-auto mb-4 rounded-full border-2 border-purple-600"
+                    src="https://via.placeholder.com/64.png?text=Avatar">
+
+                <span class="block text-lg font-semibold text-gray-900">Nome do CEO</span>
+                <small class="block text-base text-gray-600">CEO, Empresa X</small>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section id="faq" class="text-center mb-12 xl:mb-16 pt-16">
+        <div class="mb-12 space-y-5">
+            <h2 class="text-3xl xl:text-4xl font-semibold text-gray-900 -tracking-[0.72px]">
+                Perguntas frequentes
+            </h2>
+            <p class="text-lg xl:text-xl text-gray-600">
+                Tudo o que você precisa saber sobre o produto e seu pagamento.
+            </p>
+        </div>
+
+        <div class="w-full max-w-3xl mx-auto divide-y divide-gray-200 px-4 sm:px-0">
+            <!-- FAQ Item 1 -->
+            <div class="w-full pt-6 pb-8">
+                <button class="w-full flex items-center justify-between text-left" onclick="toggleAnswer(this)">
+                    <h3 class="text-gray-900 text-lg font-semibold">Existe uma versão gratuita?</h3>
+                    <svg class="icon-toggle text-purple-600" stroke="currentColor" fill="none" stroke-width="2"
+                        viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" height="20" width="20"
+                        xmlns="http://www.w3.org/2000/svg">
+                        <circle cx="12" cy="12" r="10"></circle>
+                        <line x1="12" y1="8" x2="12" y2="16"></line>
+                        <line x1="8" y1="12" x2="16" y2="12"></line>
+                    </svg>
+                </button>
+                <div class="hidden mt-4 text-gray-600 text-lg">
+                    Sim, oferecemos um teste gratuito de 14 dias com acesso total a todos os recursos.
+                </div>
+            </div>
+
+            <!-- FAQ Item 2 -->
+            <div class="w-full pt-6 pb-8">
+                <button class="w-full flex items-center justify-between text-left" onclick="toggleAnswer(this)">
+                    <h3 class="text-gray-900 text-lg font-semibold">Posso alterar meu plano mais tarde?</h3>
+                    <svg class="icon-toggle text-purple-600" stroke="currentColor" fill="none" stroke-width="2"
+                        viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" height="20" width="20"
+                        xmlns="http://www.w3.org/2000/svg">
+                        <circle cx="12" cy="12" r="10"></circle>
+                        <line x1="12" y1="8" x2="12" y2="16"></line>
+                        <line x1="8" y1="12" x2="16" y2="12"></line>
+                    </svg>
+                </button>
+                <div class="hidden mt-4 text-gray-600 text-lg">
+                    Sim, você pode fazer upgrade ou downgrade do seu plano a qualquer momento nas configurações da sua
+                    conta.
+                </div>
+            </div>
+
+            <!-- FAQ Item 3 -->
+            <div class="w-full pt-6 pb-8">
+                <button class="w-full flex items-center justify-between text-left" onclick="toggleAnswer(this)">
+                    <h3 class="text-gray-900 text-lg font-semibold">Qual é a sua política de cancelamento?</h3>
+                    <svg class="icon-toggle text-purple-600" stroke="currentColor" fill="none" stroke-width="2"
+                        viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" height="20" width="20"
+                        xmlns="http://www.w3.org/2000/svg">
+                        <circle cx="12" cy="12" r="10"></circle>
+                        <line x1="12" y1="8" x2="12" y2="16"></line>
+                        <line x1="8" y1="12" x2="16" y2="12"></line>
+                    </svg>
+                </button>
+                <div class="hidden mt-4 text-gray-600 text-lg">
+                    Você pode cancelar sua assinatura a qualquer momento, e sua conta permanecerá ativa até o final do
+                    seu período de cobrança atual.
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="mt-4 md:mt-16 bg-gray-50 rounded-2xl p-8 text-center mx-4 md:mx-16"
+        aria-labelledby="contact-title">
+        <h2 id="contact-title" class="mt-8 mb-2 text-xl font-medium text-gray-900">Ainda tem dúvidas?</h2>
+        <p class="text-gray-600 text-lg mb-8">
+            Não consegue encontrar a resposta que procura? Por favor, converse com nosso time de especialistas.
+        </p>
+        <div class="flex justify-center">
+            <button
+                class="w-full sm:w-auto py-4 px-8 bg-purple-600 rounded-full text-white font-semibold leading-normal hover:bg-purple-700 transition-colors text-lg"
+                aria-label="Fale conosco para esclarecer suas dúvidas">
+                Fale Conosco
+            </button>
+        </div>
+    </section>
+
+    <section class="bg-brand-50 rounded-2xl p-8 text-center">
+        <div>
+            <hr class="xl:mt-24 border-gray-200">
+        </div>
+    </section>
+
+    <!-- Métricas de Utilização -->
+    <section id="metricas" class="py-16 xl:py-24 bg-brand-100 mx-16" aria-labelledby="metricas-title">
+        <div class="w-full max-w-container mx-auto px-3">
+            <div class="w-full max-w-2xl mb-16 text-center xl:text-left">
+                <span class="block font-semibold text-brand-700 mb-3" style="color: #6941C6;"
+                    id="metricas-title">Métricas de Utilização</span>
+                <h2 class="text-3xl xl:text-4xl font-semibold text-gray-900 -tracking-[0.72px] mb-5">Resultados
+                    Incríveis</h2>
+                <p class="text-lg/relaxed xl:text-xl/6 text-gray-600">Descubra como nossa plataforma está ajudando
+                    empresas a alcançar resultados excepcionais.</p>
+            </div>
+            <div class="flex flex-col xl:flex-row gap-12 xl:gap-0 items-center justify-between">
+                <div class="w-full max-w-xl grid grid-cols-1 sm:grid-cols-2 gap-x-8 gap-y-8 xl:gap-y-16">
+                    <div class="text-center">
+                        <h3 class="count text-5xl xl:text-6xl font-semibold text-purple-600" data-target="500"
+                            role="heading" aria-level="3">0</h3>
+                        <h4 class="text-lg font-medium text-gray-900 mt-3 mb-2">Formulários Criados</h4>
+                        <p>Temos uma vasta biblioteca de formulários criados por nossos usuários.</p>
+                    </div>
+                    <div class="text-center">
+                        <h3 class="count text-5xl xl:text-6xl font-semibold text-purple-600" data-target="200000"
+                            role="heading" aria-level="3">0</h3>
+                        <h4 class="text-lg font-medium text-gray-900 mt-3 mb-2">Respostas Coletadas</h4>
+                        <p>Nossas ferramentas já coletaram mais de 200k respostas de usuários ao redor do mundo.</p>
+                    </div>
+                    <div class="text-center">
+                        <h3 class="count text-5xl xl:text-6xl font-semibold text-purple-600" data-target="150"
+                            role="heading" aria-level="3">0</h3>
+                        <h4 class="text-lg font-medium text-gray-900 mt-3 mb-2">Empresas Usando</h4>
+                        <p>Mais de 150 empresas confiam em nossas soluções para gerenciar seus dados.</p>
+                    </div>
+                </div>
+
+                <div class="flex justify-center xl:justify-start">
+                    <img alt="Imagem representativa de métricas de utilização da plataforma Intelliforms" loading="lazy"
+                        class="hidden md:block max-h-[50px] object-cover"
+                        src="https://via.placeholder.com/560x560?text=Intelliforms">
+                </div>
+            </div>
+
+            <hr class="xl:mt-24 border-gray-200">
+        </div>
+    </section>
+
+    <!-- Planos -->
+    <section id="plans" class="py-12">
+        <div class="container mx-auto px-4">
+            <header class="max-w-6xl mx-auto px-4 mb-16 text-center">
+                <small class="inline-block py-1 px-3 bg-brand-50 rounded-2xl text-sm font-medium text-brand-700 mb-3"
+                    style="color: #6941C6;">Planos
+                </small>
+                <h2 class="text-4xl font-bold">Nossos Planos de Assinatura</h2>
+                <p class="mt-4 text-lg text-gray-600">
+                    Escolha o plano que melhor se adapta às suas necessidades e aproveite todos os nossos serviços!
+                </p>
+            </header>
+
+            <div class="flex flex-wrap justify-center gap-8">
+                <!-- Card 1: Plano Básico -->
+                <article class="max-w-sm flex flex-col rounded-3xl bg-white dark:bg-gray-950 shadow-xl" role="article"
+                    aria-labelledby="tier-basic">
+                    <div class="p-8 sm:p-10">
+                        <h3 id="tier-basic" class="text-lg font-semibold leading-8 tracking-tight text-purple-600">
+                            Plano Básico
+                        </h3>
+                        <div
+                            class="mt-4 flex items-baseline text-5xl font-bold tracking-tight text-gray-900 dark:text-gray-100">
+                            <span>R$19</span>
+                            <span class="text-lg font-semibold leading-8 tracking-normal text-gray-500">/mês</span>
+                        </div>
+                        <p class="mt-6 text-base leading-7 text-gray-600 dark:text-slate-200">
+                            Ideal para quem está começando. Experimente todas as funcionalidades.
+                        </p>
+                    </div>
+                    <div class="flex flex-1 flex-col p-2">
+                        <div
+                            class="flex flex-1 flex-col justify-between rounded-2xl bg-gray-50 dark:bg-gray-900 p-6 sm:p-8">
+                            <ul role="list" class="space-y-6">
+                                <li class="flex items-start">
+                                    <p class="ml-3 text-sm leading-6 text-gray-600 dark:text-gray-300">Acesso
+                                        ilimitado</p>
+                                </li>
+                                <li class="flex items-start">
+                                    <p class="ml-3 text-sm leading-6 text-gray-600 dark:text-gray-300">Suporte
+                                        básico</p>
+                                </li>
+                                <li class="flex items-start">
+                                    <p class="ml-3 text-sm leading-6 text-gray-600 dark:text-gray-300">1 Projeto
+                                        ativo</p>
+                                </li>
+                            </ul>
+                            <div class="mt-8">
+                                <a href="#" aria-label="Selecionar o Plano Básico"
+                                    class="inline-block w-full rounded-lg bg-purple-600 px-4 py-2.5 text-center text-sm font-semibold leading-5 text-white shadow-md hover:bg-purple-700">
+                                    Selecionar o Plano Básico
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Card 2: Plano Profissional -->
+                <article
+                    class="max-w-sm flex flex-col rounded-3xl bg-white dark:bg-gray-950 shadow-xl border-2 border-purple-600"
+                    role="article" aria-labelledby="tier-professional">
+                    <div class="p-8 sm:p-10">
+                        <h3 id="tier-professional"
+                            class="text-lg font-semibold leading-8 tracking-tight text-purple-600">Plano
+                            Profissional</h3>
+                        <div
+                            class="mt-4 flex items-baseline text-5xl font-bold tracking-tight text-gray-900 dark:text-gray-100">
+                            <span>R$49</span>
+                            <span class="text-lg font-semibold leading-8 tracking-normal text-gray-500">/mês</span>
+                        </div>
+                        <p class="mt-6 text-base leading-7 text-gray-600 dark:text-slate-200">
+                            Para freelancers e profissionais. Aumente sua produtividade.
+                        </p>
+                    </div>
+                    <div class="flex flex-1 flex-col p-2">
+                        <div
+                            class="flex flex-1 flex-col justify-between rounded-2xl bg-gray-50 dark:bg-gray-900 p-6 sm:p-8">
+                            <ul role="list" class="space-y-6">
+                                <li class="flex items-start">
+                                    <p class="ml-3 text-sm leading-6 text-gray-600 dark:text-gray-300">Acesso
+                                        ilimitado</p>
+                                </li>
+                                <li class="flex items-start">
+                                    <p class="ml-3 text-sm leading-6 text-gray-600 dark:text-gray-300">Suporte
+                                        prioritário</p>
+                                </li>
+                                <li class="flex items-start">
+                                    <p class="ml-3 text-sm leading-6 text-gray-600 dark:text-gray-300">5 Projetos
+                                        ativos</p>
+                                </li>
+                            </ul>
+                            <div class="mt-8">
+                                <a href="#" aria-label="Selecionar o Plano Profissional"
+                                    class="inline-block w-full rounded-lg bg-purple-600 px-4 py-2.5 text-center text-sm font-semibold leading-5 text-white shadow-md hover:bg-purple-700">
+                                    Selecionar o Plano Profissional
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Card 3: Plano Empresarial -->
+                <article class="max-w-sm flex flex-col rounded-3xl bg-white dark:bg-gray-950 shadow-xl" role="article"
+                    aria-labelledby="tier-enterprise">
+                    <div class="p-8 sm:p-10">
+                        <h3 id="tier-enterprise" class="text-lg font-semibold leading-8 tracking-tight text-purple-600">
+                            Plano Empresarial
+                        </h3>
+                        <div
+                            class="mt-4 flex items-baseline text-5xl font-bold tracking-tight text-gray-900 dark:text-gray-100">
+                            <span>R$99</span>
+                            <span class="text-lg font-semibold leading-8 tracking-normal text-gray-500">/mês</span>
+                        </div>
+                        <p class="mt-6 text-base leading-7 text-gray-600 dark:text-slate-200">
+                            Ideal para grandes equipes. Maximize sua colaboração.
+                        </p>
+                    </div>
+                    <div class="flex flex-1 flex-col p-2">
+                        <div
+                            class="flex flex-1 flex-col justify-between rounded-2xl bg-gray-50 dark:bg-gray-900 p-6 sm:p-8">
+                            <ul role="list" class="space-y-6">
+                                <li class="flex items-start">
+                                    <p class="ml-3 text-sm leading-6 text-gray-600 dark:text-gray-300">Acesso
+                                        ilimitado</p>
+                                </li>
+                                <li class="flex items-start">
+                                    <p class="ml-3 text-sm leading-6 text-gray-600 dark:text-gray-300">Suporte
+                                        dedicado</p>
+                                </li>
+                                <li class="flex items-start">
+                                    <p class="ml-3 text-sm leading-6 text-gray-600 dark:text-gray-300">Projetos
+                                        ilimitados</p>
+                                </li>
+                            </ul>
+                            <div class="mt-8">
+                                <a href="#" aria-label="Selecionar o Plano Empresarial"
+                                    class="inline-block w-full rounded-lg bg-purple-600 px-4 py-2.5 text-center text-sm font-semibold leading-5 text-white shadow-md hover:bg-purple-700">
+                                    Selecionar o Plano Empresarial
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <!-- Seção de Teste Gratuito -->
+    <section class="py-16 xl:py-24 bg-gray-50" role="region" aria-labelledby="free-trial">
+        <div class="w-full max-w-container mx-auto px-3 text-center">
+            <h2 id="free-trial" class="text-3xl xl:text-4xl font-semibold text-gray-900 mb-5">
+                Experimente o Intelliforms Gratuitamente
+            </h2>
+            <p class="text-lg leading-relaxed xl:text-xl text-gray-600 mb-10">
+                Junte-se a milhares de empresas que já estão otimizando seus processos com o Intelliforms.
+            </p>
+            <div class="flex flex-col xl:flex-row gap-3 w-full xl:w-auto justify-center">
+                <button
+                    class="py-3 px-5 bg-white border border-gray-300 rounded-lg text-gray-700 font-semibold leading-normal hover:bg-gray-100 transition-colors"
+                    aria-label="Saiba mais sobre o Intelliforms">
+                    Saiba mais
+                </button>
+                <button
+                    class="py-3 px-5 bg-purple-600 rounded-lg text-white font-semibold leading-normal hover:bg-purple-700 transition-colors"
+                    aria-label="Comece agora o seu teste gratuito">
+                    Comece agora
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Mapa do Site -->
+    <section id="mapa" class="py-20 pb-0 sm:py-20 bg-white">
+        <div class="max-w-6xl mx-auto px-4">
+            <nav aria-labelledby="site-map-title">
+                <h2 id="site-map-title" class="sr-only">Mapa do Site</h2>
+                <div class="grid grid-cols-2 sm:grid-cols-1 lg:grid-cols-3 gap-8">
+                    <div class="col-span-1 sm:col-span-full lg:col-span-1">
+                        <h4 class="text-sm font-semibold text-gray-500 mb-4">Recursos</h4>
+                        <ul class="space-y-3" aria-label="Recursos">
+                            <li>
+                                <a href="#" class="text-gray-600 font-semibold hover:opacity-50 transition-opacity"
+                                    aria-label="API">
+                                    API
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#" class="text-gray-600 font-semibold hover:opacity-50 transition-opacity"
+                                    aria-label="Documentação">
+                                    Documentação
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="col-span-1 sm:col-span-full lg:col-span-1">
+                        <h4 class="text-sm font-semibold text-gray-500 mb-4">Ajuda</h4>
+                        <ul class="space-y-3" aria-label="Ajuda">
+                            <li>
+                                <a href="#" class="text-gray-600 font-semibold hover:opacity-50 transition-opacity"
+                                    aria-label="FAQ">
+                                    FAQ
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#" class="text-gray-600 font-semibold hover:opacity-50 transition-opacity"
+                                    aria-label="Suporte">
+                                    Suporte
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="col-span-2 sm:col-span-full lg:col-span-1">
+                        <h4 class="text-sm font-semibold text-gray-500 mb-4">Contato</h4>
+                        <ul class="space-y-3" aria-label="Contato">
+                            <li>
+                                <a href="#" class="text-gray-600 font-semibold hover:opacity-50 transition-opacity"
+                                    aria-label="Fale Conosco">
+                                    Fale Conosco
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-10 text-gray-600 bg-white">
+        <div class="max-w-6xl mx-auto px-4">
+            <div
+                class="flex flex-col xl:flex-row items-start xl:items-center justify-between gap-6 xl:gap-0 border-t border-gray-200 pt-8">
+                <h2 class="text-2xl font-family text-purple-600" aria-label="Nome da empresa">Intelliforms</h2>
+                <p class="text-gray-500" aria-label="Informação de direitos autorais">© 2024 Intelliforms. Todos os
+                    direitos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Importa o arquivo de script -->
+    <script src="js/script.js"></script>
+</body>
+
+</html>
